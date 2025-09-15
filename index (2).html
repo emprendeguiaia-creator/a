@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmprendeGuía IA - Tu Asistente Inteligente para Emprender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Reemplazando estilos integrados con enlace a archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header con logo de cohete y navegación mejorada -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <div class="rocket-icon">🚀</div>
+                <span>EmprendeGuía IA</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="#learning" class="nav-link">Aprender</a></li>
+                <li><a href="#community" class="nav-link">Comunidad</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#ai-assistant" class="nav-link">IA Asistente</a></li>
+            </ul>
+            
+            <div class="user-menu">
+                <div class="level-badge">
+                    <span>⭐</span>
+                    <span>Nivel 3</span>
+                </div>
+                <button class="btn btn-primary" id="loginBtn">Iniciar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section con llamada a registro personalizado -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Agregando imagen hero de emprendimiento -->
+                <div class="hero-image">
+                    <img src="/placeholder.svg?height=400&width=600" alt="Emprendedor trabajando con IA" class="hero-img">
+                </div>
+                <h1 class="hero-title">
+                    Aprende a Emprender con <span class="hero-gradient-text">Inteligencia Artificial</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Tu asistente IA personal te guía paso a paso en tu viaje emprendedor. 
+                    Únete a miles de emprendedores que ya están construyendo sus sueños.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="startJourneyBtn" style="font-size: 1.125rem; padding: 1rem 2rem;">
+                        🚀 Comenzar Mi Viaje Emprendedor
+                    </button>
+                    <p style="color: var(--gray-500); font-size: 0.875rem;">
+                        Gratis para siempre • Sin tarjeta de crédito
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard principal con todas las funcionalidades -->
+    <main class="dashboard" id="dashboard">
+        <div class="dashboard-container">
+            <!-- Header del Dashboard -->
+            <div class="dashboard-header">
+                <div>
+                    <h2 class="welcome-message">¡Bienvenido de vuelta, Emprendedor! 👋</h2>
+                    <p class="progress-summary">Has completado 3 de 12 lecciones esta semana</p>
+                </div>
+                <div class="level-badge" style="font-size: 1rem; padding: 0.5rem 1rem;">
+                    <span>🏆</span>
+                    <span>Emprendedor Novato</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Contenido Principal -->
+                <div class="main-content">
+                    <!-- IA Asistente -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🤖 Asistente IA</h3>
+                            <div class="card-icon" style="background: var(--gradient-primary); color: white;">
+                                <!-- Agregando imagen de IA -->
+                                <img src="/placeholder.svg?height=40&width=40" alt="IA" style="width: 24px; height: 24px; border-radius: 4px;">
+                            </div>
+                        </div>
+                        <div class="ai-chat">
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="chat-message">
+                                    <div class="message-avatar ai">
+                                        <!-- Agregando avatar IA -->
+                                        <img src="/placeholder.svg?height=32&width=32" alt="IA" style="width: 100%; height: 100%; border-radius: 50%;">
+                                    </div>
+                                    <div class="message-content">
+                                        ¡Hola! Soy tu asistente de emprendimiento. ¿En qué puedo ayudarte hoy? Puedo ayudarte con ideas de negocio, validación de mercado, o resolver problemas específicos.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input-container">
+                                <textarea class="chat-input" placeholder="Pregúntame sobre emprendimiento..." rows="2" id="chatInput"></textarea>
+                                <button class="chat-send-btn" id="sendChatBtn">📤</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detector de Problemas -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🔍 Detector de Problemas</h3>
+                            <!-- Agregando imagen de análisis -->
+                            <div class="detector-image">
+                                <img src="/placeholder.svg?height=60&width=60" alt="Detector" style="width: 40px; height: 40px;">
+                            </div>
+                            <button class="btn btn-secondary" id="scanProblemsBtn">Escanear</button>
+                        </div>
+                        <div class="problem-detector">
+                            <div class="detector-status">
+                                <div class="status-icon status-good">✓</div>
+                                <span>Tu negocio está en buen estado</span>
+                            </div>
+                            <ul class="problem-list" id="problemList">
+                                <li class="problem-item">
+                                    <span class="status-icon status-good">✓</span>
+                                    <span>Propuesta de valor definida</span>
+                                </li>
+                                <li class="problem-item">
+                                    <span class="status-icon status-warning">!</span>
+                                    <span>Falta investigación de mercado</span>
+                                </li>
+                                <li class="problem-item">
+                                    <span class="status-icon status-good">✓</span>
+                                    <span>Modelo de negocio claro</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Comunidad -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">👥 Comunidad</h3>
+                            <!-- Agregando imagen de comunidad -->
+                            <div class="community-header-image">
+                                <img src="/placeholder.svg?height=50&width=200" alt="Comunidad" style="width: 100px; height: 30px; border-radius: 4px;">
+                            </div>
+                            <button class="btn btn-secondary" id="newPostBtn">Nuevo Post</button>
+                        </div>
+                        <div class="community-feed" id="communityFeed">
+                            <div class="community-post">
+                                <div class="post-header">
+                                    <!-- Agregando avatares reales para usuarios -->
+                                    <div class="user-avatar">
+                                        <img src="/placeholder.svg?height=40&width=40" alt="María José" style="width: 100%; height: 100%; border-radius: 50%;">
+                                    </div>
+                                    <div class="post-meta">
+                                        <div class="post-author">María José</div>
+                                        <div class="post-time">hace 2 horas</div>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    ¡Acabo de validar mi idea de negocio! Entrevisté a 20 personas y el 85% estaría dispuesto a pagar por mi solución. ¿Alguien tiene consejos para el siguiente paso?
+                                </div>
+                                <div class="post-actions">
+                                    <span class="post-action">👍 12</span>
+                                    <span class="post-action">💬 5</span>
+                                    <span class="post-action">🔄 2</span>
+                                </div>
+                            </div>
+                            <div class="community-post">
+                                <div class="post-header">
+                                    <!-- Agregando avatar para segundo usuario -->
+                                    <div class="user-avatar">
+                                        <img src="/placeholder.svg?height=40&width=40" alt="Carlos Ruiz" style="width: 100%; height: 100%; border-radius: 50%;">
+                                    </div>
+                                    <div class="post-meta">
+                                        <div class="post-author">Carlos Ruiz</div>
+                                        <div class="post-time">hace 4 horas</div>
+                                    </div>
+                                </div>
+                                <div class="post-content">
+                                    Compartiendo mi experiencia: después de 3 meses, mi startup ya tiene sus primeros 100 usuarios. La clave fue escuchar mucho a los clientes y iterar rápido.
+                                </div>
+                                <div class="post-actions">
+                                    <span class="post-action">👍 28</span>
+                                    <span class="post-action">💬 12</span>
+                                    <span class="post-action">🔄 8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">📝 Blog de Emprendimiento</h3>
+                            <a href="#" class="btn btn-secondary">Ver Todos</a>
+                        </div>
+                        <div class="blog-posts">
+                            <article class="blog-post">
+                                <!-- Agregando imágenes para artículos del blog -->
+                                <div class="blog-thumbnail">
+                                    <img src="/placeholder.svg?height=80&width=80" alt="Ideas de Negocio" style="width: 60px; height: 60px; border-radius: 8px;">
+                                </div>
+                                <div class="blog-content">
+                                    <h4 class="blog-title">10 Ideas de Negocio para 2024</h4>
+                                    <p class="blog-excerpt">Descubre las oportunidades más prometedoras basadas en tendencias actuales y tecnologías emergentes...</p>
+                                    <div class="blog-meta">Por EmprendeGuía IA • hace 1 día • 5 min lectura</div>
+                                </div>
+                            </article>
+                            <article class="blog-post">
+                                <div class="blog-thumbnail">
+                                    <img src="/placeholder.svg?height=80&width=80" alt="Validación de Ideas" style="width: 60px; height: 60px; border-radius: 8px;">
+                                </div>
+                                <div class="blog-content">
+                                    <h4 class="blog-title">Cómo Validar tu Idea de Negocio</h4>
+                                    <p class="blog-excerpt">Métodos probados para asegurar que tu idea tiene demanda real antes de invertir tiempo y dinero...</p>
+                                    <div class="blog-meta">Por EmprendeGuía IA • hace 3 días • 8 min lectura</div>
+                                </div>
+                            </article>
+                            <article class="blog-post">
+                                <div class="blog-thumbnail">
+                                    <img src="/placeholder.svg?height=80&width=80" alt="Primer Cliente" style="width: 60px; height: 60px; border-radius: 8px;">
+                                </div>
+                                <div class="blog-content">
+                                    <h4 class="blog-title">De Idea a Primer Cliente en 30 Días</h4>
+                                    <p class="blog-excerpt">Una guía paso a paso para lanzar tu MVP y conseguir tus primeros clientes pagando...</p>
+                                    <div class="blog-meta">Por EmprendeGuía IA • hace 1 semana • 12 min lectura</div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Progreso y Niveles -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🏆 Tu Progreso</h3>
+                            <!-- Agregando imagen de progreso -->
+                            <div class="progress-visual">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Progreso" style="width: 30px; height: 30px;">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="level-progress">
+                                <div class="level-fill" style="width: 65%;"></div>
+                            </div>
+                            <div class="level-info">
+                                <span class="level-title">Nivel 3: Emprendedor Novato</span>
+                                <span class="level-xp">650/1000 XP</span>
+                            </div>
+                            <div class="achievements mt-4">
+                                <div class="achievement unlocked" title="Primera Idea">💡</div>
+                                <div class="achievement unlocked" title="Plan de Negocio">📋</div>
+                                <div class="achievement unlocked" title="Primera Validación">✅</div>
+                                <div class="achievement locked" title="Primer Cliente">👤</div>
+                                <div class="achievement locked" title="Primera Venta">💰</div>
+                                <div class="achievement locked" title="Mentor">🎓</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personalizador de Tema -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">🎨 Personalizar</h3>
+                        </div>
+                        <div class="theme-customizer">
+                            <div class="theme-option theme-blue selected" data-theme="blue">Azul</div>
+                            <div class="theme-option theme-purple" data-theme="purple">Morado</div>
+                            <div class="theme-option theme-green" data-theme="green">Verde</div>
+                            <div class="theme-option theme-orange" data-theme="orange">Naranja</div>
+                        </div>
+                    </div>
+
+                    <!-- Recursos Rápidos -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">⚡ Acceso Rápido</h3>
+                            <!-- Agregando imagen de recursos -->
+                            <div class="resources-visual">
+                                <img src="/placeholder.svg?height=40&width=120" alt="Recursos" style="width: 80px; height: 25px; border-radius: 4px;">
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <button class="btn btn-secondary" style="justify-content: flex-start;">
+                                📚 Biblioteca de Recursos
+                            </button>
+                            <button class="btn btn-secondary" style="justify-content: flex-start;">
+                                🎯 Generador de Ideas
+                            </button>
+                            <button class="btn btn-secondary" style="justify-content: flex-start;">
+                                📊 Análisis de Mercado
+                            </button>
+                            <button class="btn btn-secondary" style="justify-content: flex-start;">
+                                💼 Plantillas de Negocio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de registro personalizado mejorado -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <button style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-400);" id="closeModal">×</button>
+            
+            <div class="step-indicator">
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+
+            <!-- Paso 1: Bienvenida -->
+            <div class="registration-step active" id="step1">
+                <div class="text-center mb-4">
+                    <!-- Agregando imagen de bienvenida -->
+                    <div class="welcome-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Bienvenida" style="width: 80px; height: 80px; margin-bottom: 1rem;">
+                    </div>
+                    <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem;">¡Bienvenido/a!</h2>
+                    <p style="color: var(--gray-600);">Vamos a personalizar tu viaje emprendedor</p>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">¿Cómo te llamas?</label>
+                    <input type="text" class="form-input" placeholder="Tu nombre completo" id="userName">
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="nextStep()">Continuar</button>
+            </div>
+
+            <!-- Paso 2: Tipo de Negocio -->
+            <div class="registration-step" id="step2">
+                <div class="text-center mb-4">
+                    <!-- Agregando imagen de selección de negocio -->
+                    <div class="business-selection-image">
+                        <img src="/placeholder.svg?height=100&width=100" alt="Tipos de Negocio" style="width: 70px; height: 70px; margin-bottom: 1rem;">
+                    </div>
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">¿En qué tipo de negocio piensas?</h2>
+                    <p style="color: var(--gray-600);">Esto nos ayuda a personalizar tu experiencia</p>
+                </div>
+                <div class="business-options">
+                    <div class="business-option" data-business="ecommerce">
+                        <!-- Agregando imágenes para cada tipo de negocio -->
+                        <div class="business-option-icon">
+                            <img src="/placeholder.svg?height=50&width=50" alt="Tienda Online" style="width: 40px; height: 40px;">
+                        </div>
+                        <div class="business-option-title">🛍️ Tienda Online de Ropa</div>
+                        <div class="business-option-desc">Venta de productos de moda y accesorios</div>
+                    </div>
+                    <div class="business-option" data-business="consulting">
+                        <div class="business-option-icon">
+                            <img src="/placeholder.svg?height=50&width=50" alt="Consultoría" style="width: 40px; height: 40px;">
+                        </div>
+                        <div class="business-option-title">💼 Servicios Profesionales</div>
+                        <div class="business-option-desc">Consultoría, coaching o servicios especializados</div>
+                    </div>
+                    <div class="business-option" data-business="content">
+                        <div class="business-option-icon">
+                            <img src="/placeholder.svg?height=50&width=50" alt="Contenido" style="width: 40px; height: 40px;">
+                        </div>
+                        <div class="business-option-title">📹 Creación de Contenido</div>
+                        <div class="business-option-desc">Blog, YouTube, cursos online</div>
+                    </div>
+                    <div class="business-option" data-business="restaurant">
+                        <div class="business-option-icon">
+                            <img src="/placeholder.svg?height=50&width=50" alt="Restaurante" style="width: 40px; height: 40px;">
+                        </div>
+                        <div class="business-option-title">🍕 Restaurante Digital</div>
+                        <div class="business-option-desc">Restaurante con presencia online y delivery</div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <button class="btn btn-secondary" style="flex: 1;" onclick="prevStep()">Atrás</button>
+                    <button class="btn btn-primary" style="flex: 1;" onclick="nextStep()" id="businessNextBtn" disabled>Continuar</button>
+                </div>
+            </div>
+
+            <!-- Paso 3: Finalización -->
+            <div class="registration-step" id="step3">
+                <div class="text-center mb-4">
+                    <!-- Agregando imagen de celebración -->
+                    <div class="celebration-image">
+                        <img src="/placeholder.svg?height=120&width=120" alt="Éxito" style="width: 90px; height: 90px; margin-bottom: 1rem;">
+                    </div>
+                    <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem;">¡Perfecto!</h2>
+                    <p style="color: var(--gray-600);">Tu perfil está listo. Es hora de emprender</p>
+                </div>
+                <div style="background: var(--gray-50); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3 style="font-weight: 600; margin-bottom: 1rem;">Tu plan personalizado incluye:</h3>
+                    <ul style="list-style: none; color: var(--gray-700);">
+                        <li style="margin-bottom: 0.5rem;">✅ Ruta de aprendizaje personalizada</li>
+                        <li style="margin-bottom: 0.5rem;">✅ Asistente IA especializado en tu sector</li>
+                        <li style="margin-bottom: 0.5rem;">✅ Comunidad de emprendedores</li>
+                        <li style="margin-bottom: 0.5rem;">✅ Herramientas y plantillas gratuitas</li>
+                    </ul>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; font-size: 1.125rem; padding: 1rem;" onclick="completeRegistration()">
+                    🚀 ¡Empezar a Emprender!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        // Variables globales
+        let currentStep = 1;
+        let selectedBusiness = '';
+        let userName = '';
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
+            // Event listeners
+            document.getElementById('startJourneyBtn').addEventListener('click', openRegistration);
+            document.getElementById('loginBtn').addEventListener('click', openRegistration);
+            document.getElementById('closeModal').addEventListener('click', closeModal);
+            document.getElementById('sendChatBtn').addEventListener('click', sendChatMessage);
+            document.getElementById('chatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendChatMessage();
+                }
+            });
+            document.getElementById('scanProblemsBtn').addEventListener('click', scanProblems);
+            document.getElementById('newPostBtn').addEventListener('click', createNewPost);
+
+            // Business option selection
+            document.querySelectorAll('.business-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.business-option').forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedBusiness = this.dataset.business;
+                    document.getElementById('businessNextBtn').disabled = false;
+                });
+            });
+
+            // Theme customizer
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    applyTheme(this.dataset.theme);
+                });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Simulate initial AI message
+            setTimeout(() => {
+                addChatMessage('ai', '¡Hola! Veo que eres nuevo aquí. ¿Te gustaría que te ayude a generar algunas ideas de negocio basadas en las tendencias actuales?');
+            }, 2000);
+        }
+
+        // Modal functions
+        function openRegistration() {
+            document.getElementById('registrationModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('registrationModal').classList.remove('show');
+            resetRegistration();
+        }
+
+        function resetRegistration() {
+            currentStep = 1;
+            selectedBusiness = '';
+            userName = '';
+            updateStepIndicator();
+            showStep(1);
+            document.getElementById('userName').value = '';
+            document.querySelectorAll('.business-option').forEach(opt => opt.classList.remove('selected'));
+            document.getElementById('businessNextBtn').disabled = true;
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                userName = document.getElementById('userName').value.trim();
+                if (!userName) {
+                    alert('Por favor, ingresa tu nombre');
+                    return;
+                }
+            } else if (currentStep === 2 && !selectedBusiness) {
+                alert('Por favor, selecciona un tipo de negocio');
+                return;
+            }
+
+            currentStep++;
+            updateStepIndicator();
+            showStep(currentStep);
+        }
+
+        function prevStep() {
+            currentStep--;
+            updateStepIndicator();
+            showStep(currentStep);
+        }
+
+        function updateStepIndicator() {
+            document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                if (index < currentStep) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.registration-step').forEach(stepEl => {
+                stepEl.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+        }
+
+        function completeRegistration() {
+            // Simulate registration completion
+            closeModal();
+            
+            // Show welcome message
+            setTimeout(() => {
+                addChatMessage('ai', `¡Hola ${userName}! Bienvenido a EmprendeGuía IA. Veo que estás interesado en ${getBusinessTypeName(selectedBusiness)}. ¿Te gustaría que te ayude a crear un plan de acción personalizado?`);
+            }, 1000);
+
+            // Update dashboard
+            document.querySelector('.welcome-message').textContent = `¡Bienvenido ${userName}! 👋`;
+        }
+
+        function getBusinessTypeName(type) {
+            const names = {
+                'ecommerce': 'tienda online de ropa',
+                'consulting': 'servicios profesionales',
+                'content': 'creación de contenido',
+                'restaurant': 'restaurante con presencia online'
+            };
+            return names[type] || 'emprendimiento';
+        }
+
+        // Chat functionality
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            addChatMessage('user', message);
+            input.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                const response = generateAIResponse(message);
+                addChatMessage('ai', response);
+            }, 1000);
+        }
+
+        function addChatMessage(sender, message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageEl = document.createElement('div');
+            messageEl.className = `chat-message ${sender}`;
+            
+            messageEl.innerHTML = `
+                <div class="message-avatar ${sender}">${sender === 'ai' ? 'IA' : 'TÚ'}</div>
+                <div class="message-content">${message}</div>
+            `;
+            
+            chatMessages.appendChild(messageEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function generateAIResponse(userMessage) {
+            const responses = [
+                "Excelente pregunta. Basándome en las tendencias actuales de emprendimiento, te recomiendo considerar estos aspectos...",
+                "Para validar esa idea, podrías empezar con una investigación de mercado simple. ¿Has pensado en entrevistar a potenciales clientes?",
+                "Esa es una oportunidad interesante. En el sector que mencionas, he visto que los emprendedores exitosos se enfocan en...",
+                "Te sugiero que comiences con un MVP (Producto Mínimo Viable). Esto te permitirá probar tu idea sin invertir demasiado...",
+                "Según mi análisis de datos de emprendimiento, tu idea tiene potencial. Te recomiendo estos próximos pasos..."
+            ];
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        // Problem detector
+        function scanProblems() {
+            const btn = document.getElementById('scanProblemsBtn');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Escaneando...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Simulate problem detection
+                const problems = [
+                    { type: 'warning', text: 'Necesitas más investigación de competencia' },
+                    { type: 'error', text: 'Falta definir tu propuesta de valor única' },
+                    { type: 'good', text: 'Tu modelo de ingresos está bien estructurado' }
+                ];
+
+                updateProblemList(problems);
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }
+
+        function updateProblemList(problems) {
+            const problemList = document.getElementById('problemList');
+            problemList.innerHTML = '';
+
+            problems.forEach(problem => {
+                const li = document.createElement('li');
+                li.className = 'problem-item';
+                li.innerHTML = `
+                    <span class="status-icon status-${problem.type}">${problem.type === 'good' ? '✓' : problem.type === 'warning' ? '!' : '✗'}</span>
+                    <span>${problem.text}</span>
+                `;
+                problemList.appendChild(li);
+            });
+        }
+
+        // Community functionality
+        function createNewPost() {
+            const content = prompt('¿Qué quieres compartir con la comunidad?');
+            if (!content) return;
+
+            const communityFeed = document.getElementById('communityFeed');
+            const postEl = document.createElement('div');
+            postEl.className = 'community-post';
+            postEl.innerHTML = `
+                <div class="post-header">
+                    <div class="user-avatar">${userName ? userName.charAt(0).toUpperCase() : 'TÚ'}</div>
+                    <div class="post-meta">
+                        <div class="post-author">${userName || 'Tú'}</div>
+                        <div class="post-time">ahora</div>
+                    </div>
+                </div>
+                <div class="post-content">${content}</div>
+                <div class="post-actions">
+                    <span class="post-action">👍 0</span>
+                    <span class="post-action">💬 0</span>
+                    <span class="post-action">🔄 0</span>
+                </div>
+            `;
+            
+            communityFeed.insertBefore(postEl, communityFeed.firstChild);
+        }
+
+        // Theme customizer
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            
+            const themes = {
+                blue: {
+                    primary: '#2563eb',
+                    secondary: '#7c3aed'
+                },
+                purple: {
+                    primary: '#7c3aed',
+                    secondary: '#8b5cf6'
+                },
+                green: {
+                    primary: '#10b981',
+                    secondary: '#059669'
+                },
+                orange: {
+                    primary: '#f59e0b',
+                    secondary: '#d97706'
+                }
+            };
+
+            if (themes[theme]) {
+                root.style.setProperty('--primary-blue', themes[theme].primary);
+                root.style.setProperty('--primary-purple', themes[theme].secondary);
+            }
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('registrationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
